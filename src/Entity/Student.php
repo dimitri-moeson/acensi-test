@@ -1,99 +1,100 @@
 <?php
 
-namespace App\Entity;
+namespace App\Entity {
 
-use App\Repository\StudentRepository;
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Entity(repositoryClass=StudentRepository::class)
- */
-class Student
-{
-    /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
-     */
-    private $id;
+    use App\Repository\StudentRepository;
+    use Doctrine\ORM\Mapping as ORM;
 
     /**
-     * @ORM\Column(type="string", length=25)
+     * @ORM\Entity(repositoryClass=StudentRepository::class)
      */
-    private $FirstName;
-
-    /**
-     * @ORM\Column(type="string", length=25)
-     */
-    private $LastName;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
-    private $NumEtud;
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
+    class Student
     {
-        return $this->id;
-    }
+        /**
+         * @ORM\Id
+         * @ORM\GeneratedValue
+         * @ORM\Column(type="integer")
+         */
+        private $id;
 
-    /**
-     * @return null|string
-     */
-    public function getFirstName(): ?string
-    {
-        return $this->FirstName;
-    }
+        /**
+         * @ORM\Column(type="string", length=25)
+         */
+        private $FirstName;
 
-    /**
-     * @param string $FirstName
-     * @return Student
-     */
-    public function setFirstName(string $FirstName): self
-    {
-        $this->FirstName = $FirstName;
+        /**
+         * @ORM\Column(type="string", length=25)
+         */
+        private $LastName;
 
-        return $this;
-    }
+        /**
+         * @ORM\Column(type="integer")
+         */
+        private $NumEtud;
 
-    /**
-     * @return null|string
-     */
-    public function getLastName(): ?string
-    {
-        return $this->LastName;
-    }
+        /**
+         * @return int|null
+         */
+        public function getId(): ?int
+        {
+            return $this->id;
+        }
 
-    /**
-     * @param string $LastName
-     * @return Student
-     */
-    public function setLastName(string $LastName): self
-    {
-        $this->LastName = $LastName;
+        /**
+         * @return null|string
+         */
+        public function getFirstName(): ?string
+        {
+            return $this->FirstName;
+        }
 
-        return $this;
-    }
+        /**
+         * @param string $FirstName
+         * @return Student
+         */
+        public function setFirstName(string $FirstName): self
+        {
+            $this->FirstName = $FirstName;
 
-    /**
-     * @return int|null
-     */
-    public function getNumEtud(): ?int
-    {
-        return $this->NumEtud;
-    }
+            return $this;
+        }
 
-    /**
-     * @param int $NumEtud
-     * @return Student
-     */
-    public function setNumEtud(int $NumEtud): self
-    {
-        $this->NumEtud = $NumEtud;
+        /**
+         * @return null|string
+         */
+        public function getLastName(): ?string
+        {
+            return $this->LastName;
+        }
 
-        return $this;
+        /**
+         * @param string $LastName
+         * @return Student
+         */
+        public function setLastName(string $LastName): self
+        {
+            $this->LastName = $LastName;
+
+            return $this;
+        }
+
+        /**
+         * @return int|null
+         */
+        public function getNumEtud(): ?int
+        {
+            return $this->NumEtud;
+        }
+
+        /**
+         * @param int $NumEtud
+         * @return Student
+         */
+        public function setNumEtud(int $NumEtud): self
+        {
+            $this->NumEtud = $NumEtud;
+
+            return $this;
+        }
     }
 }
