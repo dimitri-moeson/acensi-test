@@ -33,6 +33,11 @@ namespace App\Entity {
         private $NumEtud;
 
         /**
+         * @ORM\ManyToOne(targetEntity=Department::class, inversedBy="students")
+         */
+        private $Department;
+
+        /**
          * @return int|null
          */
         public function getId(): ?int
@@ -93,6 +98,18 @@ namespace App\Entity {
         public function setNumEtud(int $NumEtud): self
         {
             $this->NumEtud = $NumEtud;
+
+            return $this;
+        }
+
+        public function getDepartment(): ?Department
+        {
+            return $this->Department;
+        }
+
+        public function setDepartment(?Department $students): self
+        {
+            $this->Department = $students;
 
             return $this;
         }

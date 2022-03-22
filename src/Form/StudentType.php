@@ -23,6 +23,10 @@ namespace App\Form {
                 ->add('FirstName')
                 ->add('LastName')
                 ->add('NumEtud')
+                ->add('Department', ChoiceType::class, [
+                    'placeholder' => 'Choose an option',
+                ])
+
             ;
         }
 
