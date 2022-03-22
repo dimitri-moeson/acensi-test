@@ -61,6 +61,7 @@
 
 # Embedded web-server pid file
 /.web-server-pid
+
 *.iml
 .idea/acensi-test.iml
 .idea/deployment.xml
@@ -68,3 +69,4 @@
 .idea/modules.xml
 .idea/vcs.xml
 .idea/workspace.xml
+.idea/php.xml

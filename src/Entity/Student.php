@@ -32,16 +32,26 @@ class Student
      */
     private $NumEtud;
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return null|string
+     */
     public function getFirstName(): ?string
     {
         return $this->FirstName;
     }
 
+    /**
+     * @param string $FirstName
+     * @return Student
+     */
     public function setFirstName(string $FirstName): self
     {
         $this->FirstName = $FirstName;
@@ -49,11 +59,18 @@ class Student
         return $this;
     }
 
+    /**
+     * @return null|string
+     */
     public function getLastName(): ?string
     {
         return $this->LastName;
     }
 
+    /**
+     * @param string $LastName
+     * @return Student
+     */
     public function setLastName(string $LastName): self
     {
         $this->LastName = $LastName;
@@ -61,11 +78,18 @@ class Student
         return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getNumEtud(): ?int
     {
         return $this->NumEtud;
     }
 
+    /**
+     * @param int $NumEtud
+     * @return Student
+     */
     public function setNumEtud(int $NumEtud): self
     {
         $this->NumEtud = $NumEtud;
