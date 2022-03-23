@@ -3,5 +3,12 @@
 #    controller: App\Controller\DefaultController::index
 
 app_student_index:
+    resource: ../../src/Controller/
     path: /student/
     controller: App\Controller\StudentController::index
+
+rest_controller:
+    resource: ../../src/Controller/Rest/
+    type: annotation
+    prefix: /api
+
