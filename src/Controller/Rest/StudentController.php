@@ -1,49 +1,53 @@
 <?php
+namespace App\Controller\Rest {
 
-use FOS\RestBundle\Controller\FOSRestController;
-
-/**
- * Class StudentController
- */
-class StudentController extends FOSRestController
-{
-    /**
-     * @var StudentRepository
-     */
-    private $StudentRepository;
+    use App\Repository\StudentRepository;
+    use FOS\RestBundle\Controller\FOSRestController as Rest;
 
     /**
-     * StudentController constructor.
-     * @param StudentRepository $studentRepository
+     * Class StudentController
      */
-    public function __construct(StudentRepository $studentRepository){
-        $this->StudentRepository = $studentRepository;
-    }
-
-    /**
-     * Retrieves an Student resource
-     * @Rest\Get("/student/{studentId}")
-     */
-    public function getStudent(int $studentId): View
+    class StudentController extends Rest
     {
-        $student = $this->StudentRepository->findById($studentId);
+        /**
+         * @var StudentRepository
+         */
+        private $StudentRepository;
 
-        if (!$student) {
-            throw new EntityNotFoundException('Article with id '.$studentId.' does not exist!');
+        /**
+         * StudentController constructor.
+         * @param StudentRepository $studentRepository
+         */
+        public function __construct(StudentRepository $studentRepository)
+        {
+            $this->StudentRepository = $studentRepository;
         }
 
-        // In case our GET was a success we need to return a 200 HTTP OK response with the request object
-        return View::create($student, Response::HTTP_OK);
-    }
+        /**
+         * Retrieves an Student resource
+         * @Rest\Get("/student/{studentId}")
+         */
+        public function getStudent(int $studentId): View
+        {
+            $student = $this->StudentRepository->findById($studentId);
 
-    /**
-     * Retrieves a collection of Student resource
-     * @Rest\Get("/students")
-     */
-    public function getArticles(): View
-    {
-        $students = $this->StudentRepository->findAll();
-        // In case our GET was a success we need to return a 200 HTTP OK response with the collection of student object
-        return View::create($students, Response::HTTP_OK);
+            if (!$student) {
+                throw new EntityNotFoundException('Article with id ' . $studentId . ' does not exist!');
+            }
+
+            // In case our GET was a success we need to return a 200 HTTP OK response with the request object
+            return View::create($student, Response::HTTP_OK);
+        }
+
+        /**
+         * Retrieves a collection of Student resource
+         * @Rest\Get("/students")
+         */
+        public function getArticles(): View
+        {
+            $students = $this->StudentRepository->findAll();
+            // In case our GET was a success we need to return a 200 HTTP OK response with the collection of student object
+            return View::create($students, Response::HTTP_OK);
+        }
     }
 }

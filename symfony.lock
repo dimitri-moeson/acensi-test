@@ -97,6 +97,24 @@
             "./config/packages/fos_rest.yaml"
         ]
     },
+    "jms/metadata": {
+        "version": "1.7.0"
+    },
+    "jms/parser-lib": {
+        "version": "1.0.1"
+    },
+    "jms/serializer": {
+        "version": "1.14.1"
+    },
+    "jms/serializer-bundle": {
+        "version": "2.4",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "fe60ce509ef04a3f40da96e3979bc8d9b13b2372"
+        }
+    },
     "laminas/laminas-code": {
         "version": "3.4.1"
     },
@@ -108,6 +126,12 @@
     },
     "nikic/php-parser": {
         "version": "v4.13.2"
+    },
+    "phpcollection/phpcollection": {
+        "version": "0.6.0"
+    },
+    "phpoption/phpoption": {
+        "version": "1.8.1"
     },
     "psr/cache": {
         "version": "1.0.1"
