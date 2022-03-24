@@ -19,32 +19,38 @@ namespace App\Controller {
         /**
          * StudentController constructor.
          */
-        public function __construct()
+        private $StudentRepository;
+
+        /**
+         * StudentController constructor.
+         * @param StudentRepository $studentRepository
+         */
+        public function __construct(StudentRepository $studentRepository)
         {
-            //die('lol!!!!!');
+            $this->StudentRepository = $studentRepository;
         }
 
         /**
          * @Route("/", name="app_student_index", methods={"GET"})
          */
-        public function index(StudentRepository $studentRepository): Response
+        public function index(): Response
         {
             return $this->render('student/index.html.twig', [
-                'students' => $studentRepository->findAll(),
+                'students' => $this->StudentRepository->findAll(),
             ]);
         }
 
         /**
          * @Route("/new", name="app_student_new", methods={"GET", "POST"})
          */
-        public function new(Request $request, StudentRepository $studentRepository): Response
+        public function new(Request $request): Response
         {
             $student = new Student();
             $form = $this->createForm(StudentType::class, $student);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                $studentRepository->add($student);
+                $this->StudentRepository->add($student);
                 return $this->redirectToRoute('app_student_index', [], Response::HTTP_SEE_OTHER);
             }
 
@@ -67,13 +73,13 @@ namespace App\Controller {
         /**
          * @Route("/{id}/edit", name="app_student_edit", methods={"GET", "POST"})
          */
-        public function edit(Request $request, Student $student, StudentRepository $studentRepository): Response
+        public function edit(Request $request, Student $student): Response
         {
             $form = $this->createForm(StudentType::class, $student);
             $form->handleRequest($request);
 
             if ($form->isSubmitted() && $form->isValid()) {
-                $studentRepository->add($student);
+                $this->StudentRepository->add($student);
                 return $this->redirectToRoute('app_student_index', [], Response::HTTP_SEE_OTHER);
             }
 
@@ -86,10 +92,10 @@ namespace App\Controller {
         /**
          * @Route("/{id}", name="app_student_delete", methods={"POST"})
          */
-        public function delete(Request $request, Student $student, StudentRepository $studentRepository): Response
+        public function delete(Request $request, Student $student): Response
         {
             if ($this->isCsrfTokenValid('delete'.$student->getId(), $request->request->get('_token'))) {
-                $studentRepository->remove($student);
+                $this->StudentRepository->remove($student);
             }
 
             return $this->redirectToRoute('app_student_index', [], Response::HTTP_SEE_OTHER);
