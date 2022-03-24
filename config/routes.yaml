@@ -1,13 +1,16 @@
-index:
-    path: /
-    controller: App\Controller\StudentController::index
+#index:
+    #path: /
+    #controller: AppBundle:Student:index # src\Controller\StudentController::index
+    #defaults:
+       #_controller: AppBundle:Student:index
+       #template:  'student/index.html.twig'
 
-app_student_index:
-    path: /student/
-    controller: App\Controller\StudentController::index
+#app_student_index:
+    #path: /student/
+    #controller: App\Controller\StudentController::index
+    #defaults: { _controller: AppBundle:Student:index }
 
 rest_controller:
-    resource: ../../src/Controller/Rest/
     type: annotation
-    prefix: /api
+    prefix: '/api'
 
