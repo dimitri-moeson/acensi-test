@@ -1,9 +1,8 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\StudentController::index
 
 app_student_index:
-    resource: ../../src/Controller/
     path: /student/
     controller: App\Controller\StudentController::index
 

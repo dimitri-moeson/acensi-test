@@ -2,12 +2,17 @@
 namespace App\Controller\Rest {
 
     use App\Repository\StudentRepository;
-    use FOS\RestBundle\Controller\FOSRestController as Rest;
+    use FOS\RestBundle\Controller\FOSRestController ;
+    use FOS\RestBundle\Controller\Annotations as Rest;
+
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+    use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+    use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
     /**
      * Class StudentController
      */
-    class StudentController extends Rest
+    class StudentController extends FOSRestController
     {
         /**
          * @var StudentRepository
