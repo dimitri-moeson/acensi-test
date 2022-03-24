@@ -15,6 +15,15 @@ namespace App\Controller {
      */
     class StudentController extends AbstractController
     {
+
+        /**
+         * StudentController constructor.
+         */
+        public function __construct()
+        {
+            //die('lol!!!!!');
+        }
+
         /**
          * @Route("/", name="app_student_index", methods={"GET"})
          */

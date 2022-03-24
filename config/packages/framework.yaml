@@ -20,3 +20,5 @@ framework:
         #default_context:
         #    enable_max_depth: true
         enabled: true
+    templating:
+        engines: ['twig']
